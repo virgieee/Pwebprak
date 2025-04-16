@@ -81,38 +81,14 @@
       </div>
     </div>
 
-    <!-- DATA CRUD -->
+    <!-- SCRIPT -->
     <script>
       const form = document.getElementById("signupForm");
       const nameInput = document.getElementById("nameInput");
       const emailInput = document.getElementById("emailInput");
       const passwordInput = document.getElementById("passwordInput");
-      const userList = document.getElementById("userList");
 
       let users = JSON.parse(localStorage.getItem("users")) || [];
-      let editingIndex = -1;
-
-      function renderUsers() {
-        userList.innerHTML = "";
-        users.forEach((user, index) => {
-          const li = document.createElement("li");
-          li.className = "border p-4 rounded bg-white shadow";
-
-          li.innerHTML = `
-            <p><strong>Nama:</strong> ${user.name}</p>
-            <p><strong>Email:</strong> ${user.email}</p>
-            <div class="mt-2">
-              <button onclick="editUser(${index})" class="bg-yellow-400 px-3 py-1 rounded mr-2">Edit</button>
-              <button onclick="deleteUser(${index})" class="bg-red-500 text-white px-3 py-1 rounded">Hapus</button>
-            </div>
-          `;
-          userList.appendChild(li);
-        });
-      }
-
-      function saveToLocalStorage() {
-        localStorage.setItem("users", JSON.stringify(users));
-      }
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -123,36 +99,14 @@
           password: passwordInput.value,
         };
 
-        if (editingIndex === -1) {
-          users.push(newUser); // CREATE
-        } else {
-          users[editingIndex] = newUser; // UPDATE
-          editingIndex = -1;
-        }
+        users.push(newUser);
 
-        saveToLocalStorage();
-        renderUsers();
+        localStorage.setItem("users", JSON.stringify(users));
         form.reset();
 
-        // Navigasi ke halaman login
+        // Langsung navigasi ke login.html
         window.location.href = "login.html";
       });
-
-      window.editUser = function (index) {
-        const user = users[index];
-        nameInput.value = user.name;
-        emailInput.value = user.email;
-        passwordInput.value = user.password;
-        editingIndex = index;
-      };
-
-      window.deleteUser = function (index) {
-        if (confirm("Yakin ingin menghapus data ini?")) {
-          users.splice(index, 1); // DELETE
-          saveToLocalStorage();
-        }
-      };
-
     </script>
   </body>
 </html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GWS - Guided Wellness Space</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-[#2E619F] text-white p-4 md:p-6 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Illustrations/Logo.png" alt="GWS logo" class="h-8 md:h-10 w-auto mr-2">
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="dashboardadmin.html" class="hover:underline hover:text-blue-200 transition">Admin</a>
+                <a href="journal.html" class="hover:underline hover:text-blue-200 transition">Journal</a>
+                <a href="login.html" class="hover:underline hover:text-blue-200 transition">Tracker</a>
+                <a href="login.html" class="hover:underline hover:text-blue-200 transition">Articles</a>
+                <a href="music.html" class="hover:underline hover:text-blue-200 transition">Music</a>
+                <div>
+                    <img src="Illustrations/Generic avatar.png" alt="Avatar" class="h-10 w-10 mr-2">
+                </div>
+            </div>
+            <button class="md:hidden text-2xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-[#1a4a7f] w-full" id="mobile-menu">
+            <div class="container mx-auto py-4 flex flex-col space-y-4">
+                <a href="dashboardadmin.html" class="hover:underline hover:text-blue-200 transition">Admin</a>
+                <a href="journal.html" class="hover:underline hover:text-blue-200 transition">Journal</a>
+                <a href="login.html" class="hover:underline hover:text-blue-200 transition">Tracker</a>
+                <a href="login.html" class="hover:underline hover:text-blue-200 transition">Articles</a>
+                <a href="music.html" class="hover:underline hover:text-blue-200 transition">Music</a>
+                <div>
+                    <img src="Illustrations/Generic avatar.png" alt="Avatar" class="h-10 w-10 mr-2">
+                </div>
+            </div>
+        </div>
+    </nav>
+  </header>
+  <!-- Main Content -->
+  <main class="p-8">
+   <h1 class="text-3xl font-bold text-[#2E619F]">
+    Welcome, Admin!
+   </h1>
+   <p class="text-[#2E619F] mb-8">
+    This is the menu where you'll find your administrator tools.
+   </p>
+   <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <button class="bg-[#2E619F] text-white p-4 aspect-square rounded-lg flex flex-col items-center justify-center hover:bg-blue-800 transition-all">
+        <i class="fas fa-users fa-4x mb-3"></i>
+        <h2 class="text-2xl font-bold">User Data</h2>
+    </button>
+    <button class="bg-[#2E619F] text-white p-4 aspect-square rounded-lg flex flex-col items-center justify-center hover:bg-blue-800 transition-all">
+        <i class="fas fa-music fa-4x mb-3"></i>
+        <h2 class="text-2xl font-bold">Add Music</h2>
+    </button>
+    <button class="bg-[#2E619F] text-white p-4 aspect-square rounded-lg flex flex-col items-center justify-center hover:bg-blue-800 transition-all">
+        <i class="fas fa-clipboard fa-4x mb-3"></i>
+        <h2 class="text-2xl font-bold">Manage Reports</h2>
+    </button>
+    <button class="bg-[#2E619F] text-white p-4 aspect-square rounded-lg flex flex-col items-center justify-center hover:bg-blue-800 transition-all">
+        <i class="fas fa-newspaper fa-4x mb-3"></i>
+        <h2 class="text-2xl font-bold">Manage Articles</h2>
+    </button>
+   </div>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-[#2E619F] p-8 text-white">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <img src="Illustrations/Logo.png" alt="GWS logo" class="h-10 w-auto">
+            </div>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-center md:text-left">
+                <div>
+                    <h3 class="font-bold mb-2">Navigation</h3>
+                    <div class="flex flex-col space-y-2">
+                        <a href="journal.html" class="hover:underline">Journal</a>
+                        <a href="#tracker" class="hover:underline">Tracker</a>
+                        <a href="" class="hover:underline">Article</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Resources</h3>
+                    <div class="flex flex-col space-y-2">
+                        <a href="#music" class="hover:underline">Music</a>
+                        <a href="#" class="hover:underline">Help Center</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Connect</h3>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="#" class="text-2xl hover:text-blue-200" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl hover:text-blue-200" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-blue-200" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-2xl hover:text-blue-200" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 pt-4 border-t border-blue-400 text-center text-sm">
+            <p>&copy; 2023 GWS. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+ </body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GWS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Add Poppins font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Poppins font to the body */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-[#2E619F] text-white p-4 md:p-6 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Illustrations/Logo.png" alt="GWS logo" class="h-8 md:h-10 w-auto mr-2">
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#journal" class="hover:underline hover:text-blue-200 transition">Journal</a>
+                <a href="#meditation" class="hover:underline hover:text-blue-200 transition">Meditation</a>
+                <a href="#articles" class="hover:underline hover:text-blue-200 transition">Articles</a>
+                <a href="music.html" class="hover:underline hover:text-blue-200 transition">Music</a>
+                <div class="flex items-center space-x-1">
+                    <a href="#" class="px-1 py-2 transition">
+                      <img src="Illustrations/Generic avatar.png" width="40" height="40">
+                    </a>
+                    <span id="username" class="text-white font-bold"></span>
+                </div>
+            </div>
+            <button class="md:hidden text-2xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-[#1a4a7f] w-full" id="mobile-menu">
+            <div class="container mx-auto py-4 flex flex-col space-y-4">
+                <a href="#journal" class="hover:underline hover:text-blue-200 transition">Journal</a>
+                <a href="#meditation" class="hover:underline hover:text-blue-200 transition">Meditation</a>
+                <a href="#articles" class="hover:underline hover:text-blue-200 transition">Articles</a>
+                <a href="music.html" class="hover:underline hover:text-blue-200 transition">Music</a>
+                <a href="" class=" px-3 py-2 text-center">
+                    <img src="Illustrations/Generic avatar.png">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Journal Section -->
+    <section class="bg-[#5385c3] text-white p-24">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2">
+                <h1 class="text-4xl font-bold mb-4">Welcome to GWS!</h1>
+                <p class="mb-4">A website where you can note down your thoughts in an online journal, track your moods, and help you with calmness.</p>
+                <button class="bg-[#2E619F] px-6 py-3 rounded-[30px]">Begin Journaling</button>
+            </div>
+            <div class="md:w-1/2 flex justify-end">
+                <img src="Illustrations/sitting reading.png" alt="Sitting Reading img" class="h-30 w-30 mr-2">            </div>
+        </div>
+    </section>
+
+    <!-- Mood Tracking Section -->
+    <section class="bg-[#3C72B6] text-white p-24">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 flex justify-start">
+                <img src="Illustrations/laying.png" alt="Laying img mood tracker" class="h-30 w-30 mr-1">            </div>
+            <div class="md:w-1/2 text-right">
+                <h2 class="text-3xl font-bold mb-4">Track your mood</h2>
+                <p class="mb-4">Track your mood at any time of the day, your sleep condition, and hobbies.</p>
+                <button class="bg-[#2E619F] px-6 py-3 rounded-[30px]">Begin Tracking</button>
+            </div>
+        </div>
+    </section>
+</section>
+<section class="bg-white text-center py-16">
+ <h2 class="text-3xl font-bold mb-6">
+  Other Services
+ </h2>
+ <div class="flex justify-center space-x-8">
+  <button class="bg-[#2E619F] hover:bg-blue-600 text-white p-10 rounded-lg w-300">
+   <img alt="meditating" src="Illustrations/meditating.png" class="mx-auto mb-4" height="200" width="300"/>
+
+   <h3 class="text-xl font-bold mb-2">
+    Meditation
+   </h3>
+   <p class="p-5">
+    Calm down by meditating
+   </p>
+  </button>
+  <button class="bg-[#2E619F] hover:bg-blue-600 text-white p-10 rounded-lg w-300">
+   <img alt="dancing" src="Illustrations/dancing2.png" class="mx-auto mb-4" height="200" width="300"/>
+
+   <h3 class="text-xl font-bold mb-2">
+    Music
+   </h3>
+   <p class="p-2">
+    Listen to some calming music
+   </p>
+</button>
+ </div>
+</section>
+<section class="bg-white text-center py-16">
+ <h2 class="text-3xl font-bold mb-8">
+  Recommended Articles:
+ </h2>
+ <div class="flex justify-center items-center space-x-4">
+  <button class="bg-[#2E619F] text-white p-2 rounded-full">
+   <i class="fas fa-chevron-left">
+   </i>
+  </button>
+  <div class="flex space-x-4">
+   <div class="bg-white shadow-lg rounded-lg overflow-hidden w-64">
+    <img alt="Article image 1" class="w-full" height="144" src="Illustrations/stress.jpg" width="256"/>
+    <div class="p-4">
+     <h3 class="text-lg font-bold mb-2">
+      Ketahui Cara Mengelola Stres yang Baik
+     </h3>
+     <button class="bg-[#2E619F] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+      Read More
+     </button>
+    </div>
+   </div>
+   <div class="bg-white shadow-lg rounded-lg overflow-hidden w-64">
+    <img alt="Article image 2" class="w-full" height="144" src="Illustrations/stress.jpg" width="256"/>
+    <div class="p-4">
+     <h3 class="text-lg font-bold mb-2">
+      Ketahui Cara Mengelola Stres yang Baik
+     </h3>
+     <button class="bg-[#2E619F] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+      Read More
+     </button>
+    </div>
+   </div>
+   <div class="bg-white shadow-lg rounded-lg overflow-hidden w-64">
+    <img alt="Article image 3" class="w-full" height="144" src="Illustrations/stress.jpg" width="256"/>
+    <div class="p-4">
+     <h3 class="text-lg font-bold mb-2">
+      Ketahui Cara Mengelola Stres yang Baik
+     </h3>
+     <button class="bg-[#2E619F] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+      Read More
+     </button>
+    </div>
+   </div>
+  </div>
+  <button class="bg-[#2E619F] text-white p-2 rounded-full">
+   <i class="fas fa-chevron-right">
+   </i>
+  </button>
+ </div>
+</section>
+</main>
+<footer class="bg-blue-700 text-white text-center py-8">
+<nav class="mb-4">
+ <a class="hover:underline mx-2" href="#">
+  About
+ </a>
+ <a class="hover:underline mx-2" href="#">
+  Journal
+ </a>
+ <a class="hover:underline mx-2" href="#">
+  Tracker
+ </a>
+ <a class="hover:underline mx-2" href="#">
+  Article
+ </a>
+ <a class="hover:underline mx-2" href="#">
+  Music
+ </a>
+</nav>
+<div class="flex justify-center space-x-4 mb-4">
+ <a class="hover:text-gray-400" href="#">
+  <i class="fab fa-facebook-f">
+  </i>
+ </a>
+ <a class="hover:text-gray-400" href="#">
+  <i class="fab fa-instagram">
+  </i>
+ </a>
+ <a class="hover:text-gray-400" href="#">
+  <i class="fab fa-twitter">
+  </i>
+ </a>
+ <a class="hover:text-gray-400" href="#">
+  <i class="fab fa-telegram">
+  </i>
+ </a>
+</div>
+<div class="flex justify-center items-center">
+ <img alt="GWS logo" class="mr-2" height="40" src="Illustrations/Logo.png" width="40"/>
+</div>
+</footer>
+</body>
+</html>
+
+<script>
+    const name = localStorage.getItem("loggedInUser");
+    if (name) {
+      document.getElementById("username").textContent = name;
+    }
+  </script>

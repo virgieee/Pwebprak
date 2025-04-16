@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GWS - Guided Wellness Space</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-[#2E619F] text-white p-4 md:p-6 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Illustrations/Logo.png" alt="GWS logo" class="h-8 md:h-10 w-auto mr-2">
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#journal" class="hover:underline hover:text-blue-200 transition">Journal</a>
+                <a href="#meditation" class="hover:underline hover:text-blue-200 transition">Meditation</a>
+                <a href="#articles" class="hover:underline hover:text-blue-200 transition">Articles</a>
+                <a href="#music" class="hover:underline hover:text-blue-200 transition">Music</a>
+                <a href="login.html" class="bg-white text-blue-900 px-4 py-2 rounded-[20px] hover:bg-blue-100 transition btn-primary">
+                    Log In
+                </a>
+            </div>
+            <button class="md:hidden text-2xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-[#1a4a7f] w-full" id="mobile-menu">
+            <div class="container mx-auto py-4 flex flex-col space-y-4">
+                <a href="#journal" class="hover:underline hover:text-blue-200 transition">Journal</a>
+                <a href="#meditation" class="hover:underline hover:text-blue-200 transition">Meditation</a>
+                <a href="#articles" class="hover:underline hover:text-blue-200 transition">Articles</a>
+                <a href="#music" class="hover:underline hover:text-blue-200 transition">Music</a>
+                <a href="login.html" class="bg-white text-blue-900 px-4 py-2 rounded-[30px] text-center">
+                    Log In
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Journal Section -->
+    <section id="journal" class="bg-[#5385c3] text-white p-12 md:p-24">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">Welcome to GWS!</h1>
+                <p class="mb-6 text-lg">A website where you can note down your thoughts in an online journal, track your moods, and help you with calmness.</p>
+                <a href="login.html" class="bg-[#2E619F] px-6 py-3 rounded-[30px] hover:bg-[#1a4a7f] transition btn-primary inline-block">
+                    Begin Journaling
+                </a>
+            </div>
+            <div class="md:w-1/2 flex justify-center md:justify-end">
+                <img src="Illustrations/sitting reading.png" alt="Person sitting and reading" class="max-w-full h-auto md:h-80">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mood Tracking Section -->
+    <section id="tracker" class="bg-[#3C72B6] text-white p-12 md:p-24">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 flex justify-center mb-8 md:mb-0 md:order-1 order-2">
+                <img src="Illustrations/laying.png" alt="Person laying down relaxing" class="max-w-full h-auto md:h-80">
+            </div>
+            <div class="md:w-1/2 md:text-right mb-8 md:mb-0 md:order-2 order-1">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Track your mood</h2>
+                <p class="mb-6 text-lg">Track your mood at any time of the day, your sleep condition, and hobbies.</p>
+                <a href="login.html" class="bg-[#2E619F] px-6 py-3 rounded-[30px] hover:bg-[#1a4a7f] transition btn-primary inline-block">
+                    Begin Tracking
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-white text-[#2E619F] p-12 md:p-24">
+        <div class="container mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex items-start">
+                    <img src="Illustrations/notebook.png" alt="Journal Notebook" class="w-16 h-16 mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Note Down Journal</h3>
+                        <p class="text-gray-700">Note down how you are feeling throughout the day with our Journal feature.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <img src="Illustrations/smile.png" alt="Smile Mood Tracker" class="w-16 h-16 mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Track your Mood</h3>
+                        <p class="text-gray-700">Track how you are feeling throughout the day with our Mood Tracker feature.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <img src="Illustrations/meditate.png" alt="Meditation icon" class="w-16 h-16 mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Meditation</h3>
+                        <p class="text-gray-700">Use our Meditation feature to assist you in meditating and helping you to calm down.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <img src="Illustrations/music.png" alt="Music icon" class="w-16 h-16 mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Music</h3>
+                        <p class="text-gray-700">Listen to various nature and other calming sounds to help you focus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#2E619F] p-8 text-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="Illustrations/Logo.png" alt="GWS logo" class="h-10 w-auto">
+                </div>
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-center md:text-left">
+                    <div>
+                        <h3 class="font-bold mb-2">Navigation</h3>
+                        <div class="flex flex-col space-y-2">
+                            <a href="#journal" class="hover:underline">Journal</a>
+                            <a href="#tracker" class="hover:underline">Tracker</a>
+                            <a href="#meditation" class="hover:underline">Meditation</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Resources</h3>
+                        <div class="flex flex-col space-y-2">
+                            <a href="#articles" class="hover:underline">Articles</a>
+                            <a href="#music" class="hover:underline">Music</a>
+                            <a href="#" class="hover:underline">Help Center</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Connect</h3>
+                        <div class="flex space-x-4 justify-center md:justify-start">
+                            <a href="#" class="text-2xl hover:text-blue-200" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-2xl hover:text-blue-200" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-2xl hover:text-blue-200" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" class="text-2xl hover:text-blue-200" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-4 border-t border-blue-400 text-center text-sm">
+                <p>&copy; 2023 GWS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

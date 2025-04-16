@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="flex bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl w-full">
+    <div class="hidden md:flex md:w-1/2 bg-[#2E619F] items-center justify-center p-10">
+      <img alt="Person Sitting Illustration" class="w-full h-auto" height="400" src="Illustrations/sitting reading.png" width="400"/>
+    </div>
+    <div class="w-full md:w-1/2 p-8">
+      <h2 class="text-2xl font-bold text-[#2E619F] mb-4">Hello, User!</h2>
+      <p class="text-gray-600 mb-6">Login to save your data across all devices!</p>
+      <button class="w-full flex items-center justify-center border border-[#2E619F] rounded-lg py-2 mb-4">
+        <i class="fab fa-google text-red-500 mr-2"></i> Login with Google
+      </button>
+      <button class="w-full flex items-center justify-center border border-[#2E619F] rounded-lg py-2 mb-4">
+        <i class="fab fa-apple text-black mr-2"></i> Login with Apple
+      </button>
+      <div class="flex items-center justify-between mb-4">
+        <hr class="w-full border-[#2E619F]"/>
+        <span class="px-2 text-gray-400">OR</span>
+        <hr class="w-full border-[#2E619F]"/>
+      </div>
+
+      <form id="loginForm">
+        <div class="mb-4">
+          <label class="block text-gray-700" for="email">Email</label>
+          <input class="w-full border border-[#2E619F] rounded-lg py-2 px-4 mt-2" id="email" placeholder="example@someone.com" type="email" required/>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700" for="password">Password</label>
+          <input class="w-full border border-[#2E619F] rounded-lg py-2 px-4 mt-2" id="password" placeholder="Input Password" type="password" required/>
+        </div>
+        <div class="flex items-center justify-between mb-6">
+          <a class="text-[#2E619F]" href="#">Lupa Password?</a>
+        </div>
+        <button type="submit" class="w-full bg-[#2E619F] text-white rounded-lg py-2">Login</button>
+      </form>
+
+      <p class="text-center text-gray-600 mt-4">
+        Kamu belum punya akun?
+        <a class="text-[#2E619F]" href="register.html">Daftar Disini</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        // Simpan nama user untuk ditampilkan di landingpage
+        localStorage.setItem("loggedInUser", user.name);
+        window.location.href = "landingpageuser.html";
+      } else {
+        alert("Email atau password salah.");
+      }
+    });
+  </script>
+</body>
+</html>

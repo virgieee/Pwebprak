@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GWS Music</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .recently-played::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .recently-played {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .player-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(45, 97, 159, 0.95);
+            z-index: 100;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .music-item {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <nav class="bg-[#2E619F] text-white p-4 md:p-6 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Illustrations/Logo.png" alt="GWS logo" class="h-8 md:h-10 w-auto mr-2">
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="landingpageuser.html" class="hover:underline hover:text-blue-200 transition">Home</a>
+                <a href="#journal" class="hover:underline hover:text-blue-200 transition">Journal</a>
+                <a href="#meditation" class="hover:underline hover:text-blue-200 transition">Meditation</a>
+                <a href="#articles" class="hover:underline hover:text-blue-200 transition">Articles</a>
+                <a href="#music" class="hover:underline hover:text-blue-200 transition">Music</a>
+                <a href="" class="px-3 py-2 transition btn-primary\">
+                    <img src="Illustrations/Generic avatar.png" width="40", height="40">
+                </a>
+            </div>
+            <button class="md:hidden text-2xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-[#1a4a7f] w-full" id="mobile-menu">
+            <div class="container mx-auto py-4 flex flex-col space-y-4">
+                <a href="landingpageuser.html" class="hover:underline hover:text-blue-200 transition">Journal</a>
+                <a href="#journal" class="hover:underline hover:text-blue-200 transition">Journal</a>
+                <a href="#meditation" class="hover:underline hover:text-blue-200 transition">Meditation</a>
+                <a href="#articles" class="hover:underline hover:text-blue-200 transition">Articles</a>
+                <a href="#music" class="hover:underline hover:text-blue-200 transition">Music</a>
+                <a href="" class=" px-3 py-2 text-center">
+                    <img src="Illustrations/Generic avatar.png">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Music Player Overlay -->
+    <div id="player-overlay" class="player-overlay">
+        <div class="flex flex-col items-center justify-center">
+            <div class="absolute top-6 right-6">
+                <button id="close-player" class="text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <img id="player-image" src="" alt="Album cover" class="w-64 h-64 rounded-xl object-cover mb-8">
+            
+            <h2 id="player-title" class="text-white text-2xl font-semibold mb-6">Track Title</h2>
+            
+            <div class="flex items-center justify-center space-x-8 mb-8">
+                <button class="text-white text-4xl">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="text-white text-4xl">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <button class="text-white text-4xl">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </div>
+            
+            <div class="w-full max-w-md flex items-center text-white">
+                <span id="current-time">0:51</span>
+                <div class="mx-4 flex-grow bg-white bg-opacity-30 rounded-full h-2">
+                    <div class="bg-white h-2 rounded-full w-3/4"></div>
+                </div>
+                <span id="total-time">1:31</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-6">
+        <!-- Search Bar -->
+        <div class="mb-6">
+            <input type="text" class="w-full p-3 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:border-blue-500" placeholder="Search for music, playlists, artists...">
+        </div>
+
+        <!-- For You Section -->
+        <h1 class="text-2xl font-bold text-[#2E619F] mb-4">For You</h1>
+        
+        <!-- Large Feature Item -->
+        <div class="music-item bg-[#5d8bc0] rounded-xl p-5 text-white mb-4 flex flex-col md:flex-row items-center" data-title="Relaxing Music" data-img="Illustrations/relaxing.jpg">
+            <img src="Illustrations/relaxing.jpg" alt="Mountain landscape with fog" class="w-full md:w-40 h-40 rounded-lg object-cover mb-4 md:mb-0">
+            
+            <div class="md:ml-6 flex-grow">
+                <h2 class="text-xl font-semibold mb-2">Relaxing Music</h2>
+                <p class="mb-4">Helps you feel at ease</p>
+                
+                <div class="flex gap-4">
+                    <button class="play-button h-12 w-12 bg-white bg-opacity-30 rounded-full flex items-center justify-center hover:bg-opacity-50 transition" data-title="Relaxing Music" data-img="Illustrations/relaxing.jpg">
+                        <i class="fas fa-play text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recommendation Items - Two items stacked vertically -->
+        <div class="space-y-4 mb-8">
+            <div class="music-item bg-[#5d8bc0] rounded-xl p-4 text-white flex justify-between items-center cursor-pointer hover:bg-[#4a7cb3] transition" data-title="Relaxing Music" data-img="Illustrations/calming.jpg">
+                <div class="flex items-center">
+                    <img src="Illustrations/calming.jpg" alt="Mountain landscape" class="w-14 h-14 rounded-lg object-cover mr-4">
+                    <h3 class="text-lg font-medium">Relaxing Music</h3>
+                </div>
+                
+                <button class="play-button h-10 w-10 bg-white bg-opacity-30 rounded-full flex items-center justify-center hover:bg-opacity-50 transition" data-title="Relaxing Music" data-img="Illustrations/calming.jpg">
+                    <i class="fas fa-play text-white text-sm"></i>
+                </button>
+            </div>
+            
+            <div class="music-item bg-[#5d8bc0] rounded-xl p-4 text-white flex justify-between items-center cursor-pointer hover:bg-[#4a7cb3] transition" data-title="Calming Lo-Fi" data-img="Illustrations/peaceful.jpg">
+                <div class="flex items-center">
+                    <img src="Illustrations/peaceful.jpg" alt="Sunset with reeds" class="w-14 h-14 rounded-lg object-cover mr-4">
+                    <h3 class="text-lg font-medium">Calming Lo-Fi</h3>
+                </div>
+                
+                <button class="play-button h-10 w-10 bg-white bg-opacity-30 rounded-full flex items-center justify-center hover:bg-opacity-50 transition" data-title="Calming Lo-Fi" data-img="Illustrations/peaceful.jpg">
+                    <i class="fas fa-play text-white text-sm"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Recently Played Section -->
+        <h1 class="text-2xl font-bold text-[#2E619F] mb-4">Recently Played</h1>
+        
+        <div class="bg-[#5d8bc0] rounded-xl p-5 overflow-x-auto recently-played mb-8">
+            <div class="flex gap-4 min-w-min">
+                <a href="#" class="recently-played-item block min-w-[150px] text-white hover:transform hover:-translate-y-1 transition-transform duration-200" data-title="Relaxing Music" data-img="Illustrations/relaxing.jpg">
+                    <div class="relative">
+                        <img src="Illustrations/relaxing.jpg" alt="Mountain landscape" class="w-[150px] h-[150px] rounded-lg object-cover mb-2">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="h-12 w-12 bg-white bg-opacity-30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center">Relaxing Music</p>
+                </a>
+                
+                <a href="#" class="recently-played-item block min-w-[150px] text-white hover:transform hover:-translate-y-1 transition-transform duration-200" data-title="Calming Lo-fi" data-img="Illustrations/peaceful.jpg">
+                    <div class="relative">
+                        <img src="Illustrations/peaceful.jpg" alt="Sunset with reeds" class="w-[150px] h-[150px] rounded-lg object-cover mb-2">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="h-12 w-12 bg-white bg-opacity-30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center">Calming Lo-fi</p>
+                </a>
+                
+                <a href="#" class="recently-played-item block min-w-[150px] text-white hover:transform hover:-translate-y-1 transition-transform duration-200" data-title="Relaxing Music" data-img="Illustrations/calming.jpg">
+                    <div class="relative">
+                        <img src="Illustrations/calming.jpg" alt="Mountain valley" class="w-[150px] h-[150px] rounded-lg object-cover mb-2">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="h-12 w-12 bg-white bg-opacity-30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center">Relaxing Music</p>
+                </a>
+                
+                <a href="#" class="recently-played-item block min-w-[150px] text-white hover:transform hover:-translate-y-1 transition-transform duration-200" data-title="Calming Lo-fi" data-img="Illustrations/peaceful.jpg">
+                    <div class="relative">
+                        <img src="Illustrations/peaceful.jpg" alt="Sunset with reeds" class="w-[150px] h-[150px] rounded-lg object-cover mb-2">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="h-12 w-12 bg-white bg-opacity-30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center">Calming Lo-fi</p>
+                </a>
+                
+                <a href="#" class="recently-played-item block min-w-[150px] text-white hover:transform hover:-translate-y-1 transition-transform duration-200" data-title="Relaxing Music" data-img="Illustrations/relaxing.jpg">
+                    <div class="relative">
+                        <img src="Illustrations/relaxing.jpg" alt="Mountain landscape" class="w-[150px] h-[150px] rounded-lg object-cover mb-2">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="h-12 w-12 bg-white bg-opacity-30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center">Relaxing Music</p>
+                </a>
+                
+                <a href="#" class="recently-played-item block min-w-[150px] text-white hover:transform hover:-translate-y-1 transition-transform duration-200" data-title="Calming Lo-Fi" data-img="Illustrations/calming.jpg">
+                    <div class="relative">
+                        <img src="Illustrations/calming.jpg" alt="Mountain valley" class="w-[150px] h-[150px] rounded-lg object-cover mb-2">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="h-12 w-12 bg-white bg-opacity-30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center">Calming Lo-Fi</p>
+                </a>
+                
+                <a href="#" class="recently-played-item block min-w-[150px] text-white hover:transform hover:-translate-y-1 transition-transform duration-200" data-title="Relaxing Music" data-img="Illustrations/relaxing.jpg">
+                    <div class="relative">
+                        <img src="Illustrations/relaxing.jpg" alt="Mountain landscape" class="w-[150px] h-[150px] rounded-lg object-cover mb-2">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="h-12 w-12 bg-white bg-opacity-30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center">Relaxing Music</p>
+                </a>
+                
+                <a href="#" class="recently-played-item block min-w-[150px] text-white hover:transform hover:-translate-y-1 transition-transform duration-200" data-title="Calming Lo-Fi" data-img="Illustrations/peaceful.jpg">
+                    <div class="relative">
+                        <img src="Illustrations/peaceful.jpg" alt="Sunset with reeds" class="w-[150px] h-[150px] rounded-lg object-cover mb-2">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="h-12 w-12 bg-white bg-opacity-30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center">Calming Lo-Fi</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Music player functionality
+        const playerOverlay = document.getElementById('player-overlay');
+        const playerImage = document.getElementById('player-image');
+        const playerTitle = document.getElementById('player-title');
+        const closePlayer = document.getElementById('close-player');
+        
+        // Function to show player with specific track info
+        function showPlayer(title, imgSrc) {
+            playerTitle.textContent = title;
+            playerImage.src = imgSrc;
+            playerOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling while player is open
+        }
+        
+        // Close player functionality
+        closePlayer.addEventListener('click', function() {
+            playerOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+        
+        // Add event listeners to all play buttons
+        const playButtons = document.querySelectorAll('.play-button');
+        playButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent event from bubbling up to parent div
+                const title = this.getAttribute('data-title');
+                const imgSrc = this.getAttribute('data-img');
+                showPlayer(title, imgSrc);
+            });
+        });
+        
+        // Add event listeners to music items (the entire divs)
+        const musicItems = document.querySelectorAll('.music-item');
+        musicItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const title = this.getAttribute('data-title');
+                const imgSrc = this.getAttribute('data-img');
+                showPlayer(title, imgSrc);
+            });
+        });
+        
+        // Add event listeners to recently played items
+        const recentlyPlayedItems = document.querySelectorAll('.recently-played-item');
+        recentlyPlayedItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                const title = this.getAttribute('data-title');
+                const imgSrc = this.getAttribute('data-img');
+                showPlayer(title, imgSrc);
+            });
+        });
+    </script>
+</body>
+</html>

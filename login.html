@@ -62,15 +62,24 @@
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
-      const users = JSON.parse(localStorage.getItem("users")) || [];
-      const user = users.find(u => u.email === email && u.password === password);
-
-      if (user) {
-        // Simpan nama user untuk ditampilkan di landingpage
-        localStorage.setItem("loggedInUser", user.name);
-        window.location.href = "landingpageuser.html";
+      // Pengecekan email jika mengandung @gws.com
+      if (email.includes('@gws.com')) {
+        // Jika email mengandung @gws.com, login otomatis
+        const guestUser = { name: "Admin", email: email };
+        localStorage.setItem("loggedInUser", guestUser.name);
+        window.location.href = "dashboardadmin.html";
       } else {
-        alert("Email atau password salah.");
+        // Cek email dan password di localStorage untuk user yang terdaftar
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const user = users.find(u => u.email === email && u.password === password);
+
+        if (user) {
+          // Simpan nama user untuk ditampilkan di landingpage
+          localStorage.setItem("loggedInUser", user.name);
+          window.location.href = "landingpageuser.html";
+        } else {
+          alert("Email atau password salah.");
+        }
       }
     });
   </script>
